@@ -1,0 +1,3 @@
+[submodule "l7-profile-list-widget"]
+	path = l7-profile-list-widget
+	url = https://github.com/vinodhl7/Microfrontend_Widgets

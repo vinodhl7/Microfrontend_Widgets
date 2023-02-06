@@ -1,16 +1,24 @@
 {
   "name": "l7-profile-details-widget",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "Made with create-react-library",
   "author": "vinodhl7",
   "license": "l7",
   "repository": "vinodhl7/Microfrontend_Widgets/l7-profile-details-widget",
+  "homepage": "https://github.com/vinodhl7/Microfrontend_Widgets/l7-profile-details-widget",
   "main": "dist/index.js",
   "module": "dist/index.modern.js",
   "source": "src/index.js",
   "engines": {
     "node": ">=10"
   },
+  "keywords": [
+    "l7",
+    "profile",
+    "widget",
+    "profile-details",
+    "component"
+  ],
   "scripts": {
     "build": "microbundle-crl --no-compress --format modern,cjs",
     "start": "microbundle-crl watch --no-compress --format modern,cjs",
@@ -24,7 +32,7 @@
     "deploy": "gh-pages -d example/build"
   },
   "peerDependencies": {
-    "react": "^16.0.0"
+    "react": "^17.0.2"
   },
   "devDependencies": {
     "microbundle-crl": "^0.13.10",

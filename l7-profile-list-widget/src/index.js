@@ -27,7 +27,7 @@ export const ProfileListWidget = ({widgetId, env, context  }) => {
     <ul>
     {customers?.map( (customer) =>  {
       return (<li>
-        <a href={'/customer/CustomerDetail/'+ customer.id}> {customer.firstName + ' ' + customer.lastName} </a>
+        <a href={'/customer/customer-detail/'+ customer.id}> {customer.firstName + ' ' + customer.lastName} </a>
       </li>);
     })  
     }

@@ -2,16 +2,17 @@ import React from 'react'
 import styles from './styles.module.css'
 import {retrieveProfile} from './service/profile-widget-api'
 import { useState, useEffect } from "react";
-import { contextDetails } from 'l7-context-provider';
+import { ContextDetails } from 'l7-context-provider';
 import { useContext } from 'react';
 
 debugger;
 
-export const ProfileDetailsWidget = ({widgetId, customerId, env, context  }) => {
+export const ProfileDetailsWidget = ({widgetId, customerId, env, displayName  }) => {
     debugger; 
   const [customer, setCusstomer] = useState({});
-  const [contextDetail, setContextDetail] = useContext(contextDetails || {});
-  
+  console.log("ContextDetails", ContextDetails);
+  const [contextData, setContextData] = useContext(ContextDetails);
+
   useEffect(() => {
     if (customerId) {
         fetch('https://6326b210ba4a9c4753299365.mockapi.io/litmus7/users/'+customerId)
@@ -29,9 +30,13 @@ export const ProfileDetailsWidget = ({widgetId, customerId, env, context  }) => 
     
   }, []);
 
-  
+  const setContextHandler =()=>{
+    console.log("contextData...", contextData)
+    //setContextData({...contextData, selectedCustomer: customerId})
+    
+  }
 
-  return <div className={styles.test}>Profile Details {customerId}
+  return <div className={styles.test}> {displayName}
      <div>
         &nbsp; 
     </div>
@@ -55,7 +60,7 @@ export const ProfileDetailsWidget = ({widgetId, customerId, env, context  }) => 
             <div>
                 Phone: {customer?.phoneNumber} 
             </div>
-            
+            <button onClick={()=>{setContextHandler()}}>Select Customer</button>
             
         </div> 
 

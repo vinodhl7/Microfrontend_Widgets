@@ -6,26 +6,19 @@ import { createContext, useState, useEffect } from 'react';
 
 //create a context, with createContext api
 
-export const ContextDetails = createContext({});
+export const contextDetails = createContext();
 
 
 
-
-export const ContextDetailsProvider = (props) => {
-  // this state will be shared with all components 
-
-const [contextData, setContextData] = useState({selectedCustomer: ''})
-
-
-useEffect(() => {
-  debugger;
+export const refreshContext = () => {
+  
   let contextCookie = Cookies.get('contextCookie');
   if (contextCookie) {
     fetch('http://localhost:8686/browseexpservice/v1/context/'+contextCookie)
     .then((response) => response.json())
     .then((data) => {
        console.log('Context Data' + data);
-       setContextData(data);
+       return data;
     })
     .catch((err) => {
        console.log(err.message);
@@ -38,38 +31,60 @@ useEffect(() => {
        data.selectedCustomer='';
        data.selectedOrder='';       
        Cookies.set('contextCookie', data?.contextId);
-       setContextData(data);
+       return data;
     })
     .catch((err) => {
        console.log(err.message);
        return null;
     });
   }
-}, []);
+};
 
-useEffect(() => {
+
+
+export const ContextDetailsProvider = (props) => {
+  // this state will be shared with all components 
+
+debugger;
+
+
+const [contextDetail, setContextDetail] = useState({});
+
+
+useEffect(() =>{
+  
+let details = refreshContext();
+console.log('details');
+setContextDetail(details);
+
+},[]);
+
+
+
+const updateContext = (contextDetail) => {
   debugger;
-  if (contextData?.contextId) {
+  if (contextDetail?.contextId) {
     const requestOptions = {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(contextData)
+      body: JSON.stringify(contextDetail)
     };
-    fetch('http://localhost:8686/browseexpservice/v1/context/'+contextData.contextId, requestOptions)
+    fetch('http://localhost:8686/browseexpservice/v1/context/'+contextDetail.contextId, requestOptions)
         .then(response => response.json())
         .then(data => {
           debugger;
-          console.log('Updated context in service' + data);
-        });
+          console.log('Updated context' + data);
+          setContextDetail(data);});
   }
-}, [contextData]);
+  
+
+};
 
 return (
           // this is the provider providing state
-          <ContextDetails.Provider value={[contextData, setContextData]}>
-            {props.children}
-          </ContextDetails.Provider>
-  
+  <contextDetails.Provider value={[contextDetail, setContextDetail, updateContext]}>
+      {props.children}
+  </contextDetails.Provider>
 );
 };
 

@@ -60,6 +60,6 @@
     "dist"
   ],
   "dependencies": {
-    "l7-context-provider": "^1.0.25"
+    "l7-context-provider": "^1.0.70"
   }
 }

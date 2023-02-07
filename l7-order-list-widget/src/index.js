@@ -27,7 +27,7 @@ export const OrderListWidget = ({
       .catch((err) => {
         console.log(err.message)
       })
-  }, [])
+  }, [customerId])
 
   return (
     <div className='relative overflow-x-auto'>

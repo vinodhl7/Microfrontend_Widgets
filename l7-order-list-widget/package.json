@@ -1,6 +1,6 @@
 {
   "name": "l7-order-list-widget",
-  "version": "2.0.0",
+  "version": "2.0.4",
   "description": "Listing all orders as well as orders filtered by customer id",
   "author": "simonlit7",
   "license": "MIT",
@@ -24,7 +24,8 @@
     "deploy": "gh-pages -d example/build"
   },
   "peerDependencies": {
-    "react": "^16.0.0"
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
   },
   "devDependencies": {
     "autoprefixer": "^9.8.8",
@@ -45,8 +46,7 @@
     "npm-run-all": "^4.1.5",
     "postcss": "^7.0.39",
     "prettier": "^2.0.4",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
+    "react": "^17.0.2",
     "react-scripts": "^3.4.1",
     "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.2.17"
   },

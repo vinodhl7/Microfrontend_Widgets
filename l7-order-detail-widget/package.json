@@ -1,6 +1,6 @@
 {
   "name": "l7-order-detail-widget",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "order details widget",
   "author": "simonlit7",
   "license": "MIT",
@@ -24,7 +24,7 @@
     "deploy": "gh-pages -d example/build"
   },
   "peerDependencies": {
-    "react": "^16.0.0"
+    "react": "^17.0.2"
   },
   "devDependencies": {
     "autoprefixer": "^9.8.8",

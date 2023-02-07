@@ -5,7 +5,7 @@ import 'l7-order-list-widget/dist/index.css'
 
 const App = () => {
   
-  return <OrderListWidget isRecentOrders={true} customerId={'2'} />
+  return <OrderListWidget isRecentOrders={true} customerId={'1'} />
 }
 
 export default App

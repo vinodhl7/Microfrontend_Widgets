@@ -1,6 +1,6 @@
 {
   "name": "l7-order-list-widget",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Listing all orders as well as orders filtered by customer id",
   "author": "simonlit7",
   "license": "MIT",

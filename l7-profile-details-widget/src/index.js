@@ -10,25 +10,29 @@ export const ProfileDetailsWidget = ({widgetId, customerId, env, context  }) => 
   const {contextData, setContextData} = context;
   console.log("COntextData from props", contextData);
   console.log("COntext Props,", context);
-  
+  console.log("CustomerID in profile widget,", customerId);
   const [customer, setCusstomer] = useState({});
 
   useEffect(() => {
-    fetch('https://6326b210ba4a9c4753299365.mockapi.io/litmus7/users/'+customerId)
-    .then((response) => response.json())
-    .then((data) => {
-       console.log('profile_api_data' + data);
-       setCusstomer(data);
-    })
-    .catch((err) => {
-       console.log(err.message);
-    });
+    console.log("CustomerID in profile widget use effect,", customerId);
+    if (customerId) {
+      fetch('https://6326b210ba4a9c4753299365.mockapi.io/litmus7/users/'+customerId)
+        .then((response) => response.json())
+        .then((data) => {
+          console.log('profile_api_data' + data);
+          setCusstomer(data);
+        })
+        .catch((err) => {
+          console.log(err.message);
+        });
+    } 
     
     
-  }, []);
+    
+  }, [customerId]);
 
   const setContextHandler = (customerObject)=>{
-    setContextData(customerObject.id);
+    setContextData({...contextData, customerId:customerObject.id});
   }
 
   

@@ -6,6 +6,10 @@ import { useState, useEffect } from "react";
 
 
 export const ProfileDetailsWidget = ({widgetId, customerId, env, context  }) => {
+
+  const {contextData, setContextData} = context;
+  console.log("COntextData from props", contextData);
+  console.log("COntext Props,", context);
   
   const [customer, setCusstomer] = useState({});
 
@@ -22,6 +26,10 @@ export const ProfileDetailsWidget = ({widgetId, customerId, env, context  }) => 
     
     
   }, []);
+
+  const setContextHandler = (customerObject)=>{
+    setContextData(customerObject.id);
+  }
 
   
 
@@ -59,6 +67,7 @@ export const ProfileDetailsWidget = ({widgetId, customerId, env, context  }) => 
           Created at: {customer.createdAt}
         </div>
       </div>
+      <button onClick={()=>{setContextHandler(customer)}}>Set Data!!</button>
     </div>
   )
 }

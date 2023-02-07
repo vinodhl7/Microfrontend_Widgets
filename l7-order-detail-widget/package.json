@@ -1,24 +1,16 @@
 {
-  "name": "l7-profile-list-widget",
-  "version": "2.0.0",
-  "description": "Profile list Widget",
-  "author": "vinodhl7",
-  "license": "l7",
-  "repository": "vinodhl7/Microfrontend_Widgets/l7-profile-list-widget",
+  "name": "l7-order-detail-widget",
+  "version": "1.0.0",
+  "description": "order details widget",
+  "author": "simonlit7",
+  "license": "MIT",
+  "repository": "simonlit7/l7-order-detail-widget",
   "main": "dist/index.js",
   "module": "dist/index.modern.js",
   "source": "src/index.js",
   "engines": {
     "node": ">=10"
   },
-  "homepage": "https://github.com/vinodhl7/Microfrontend_Widgets/l7-profile-list-widget",
-  "keywords": [
-    "l7",
-    "profile-list",
-    "widget",
-    "profile-details",
-    "component"
-  ],
   "scripts": {
     "build": "microbundle-crl --no-compress --format modern,cjs",
     "start": "microbundle-crl watch --no-compress --format modern,cjs",
@@ -32,7 +24,7 @@
     "deploy": "gh-pages -d example/build"
   },
   "peerDependencies": {
-    "react": "^17.0.2"
+    "react": "^16.0.0"
   },
   "devDependencies": {
     "autoprefixer": "^9.8.8",

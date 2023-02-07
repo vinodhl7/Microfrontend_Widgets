@@ -1,6 +1,6 @@
 {
   "name": "l7-context-provider",
-  "version": "1.0.0",
+  "version": "1.0.25",
   "description": "L7 COntext Provider",
   "author": "vinodhl7",
   "license": "l7",
@@ -11,6 +11,14 @@
   "engines": {
     "node": ">=10"
   },
+  "homepage": "https://github.com/vinodhl7/Microfrontend_Widgets/l7-context-provider",
+  "keywords": [
+    "l7",
+    "Context",
+    "widget",
+    "context-details",
+    "component"
+  ],
   "scripts": {
     "build": "microbundle-crl --no-compress --format modern,cjs",
     "start": "microbundle-crl watch --no-compress --format modern,cjs",
@@ -24,7 +32,7 @@
     "deploy": "gh-pages -d example/build"
   },
   "peerDependencies": {
-    "react": "^16.0.0"
+    "react": "^17.0.2"
   },
   "devDependencies": {
     "microbundle-crl": "^0.13.10",

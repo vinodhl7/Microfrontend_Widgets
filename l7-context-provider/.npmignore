@@ -1,0 +1,21 @@
+src
+example
+.babelrc
+rollup.config.js
+## node modules folder
+node_modules
+## git repository related files
+.git
+.gitignore
+CVS
+.svn
+.hg
+.lock-wscript
+.wafpickle-N
+.DS_Store
+npm-debug.log
+.npmrc
+.nvmrc
+#others
+config.gypi
+package-lock.json

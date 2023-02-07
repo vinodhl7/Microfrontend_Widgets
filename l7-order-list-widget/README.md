@@ -15,12 +15,20 @@ npm install --save l7-order-list-widget
 ```jsx
 import React, { Component } from 'react'
 
-import MyComponent from 'l7-order-list-widget'
+import OrderListWidget from 'l7-order-list-widget'
 import 'l7-order-list-widget/dist/index.css'
 
 class Example extends Component {
+  // to list all orders
   render() {
-    return <MyComponent />
+    return <OrderListWidget isRecentOrders={false}  />
+  }
+}
+
+class Example extends Component {
+  // to list a customers order
+  render() {
+    return <OrderListWidget isRecentOrders={true} customerId={customerId} />
   }
 }
 ```

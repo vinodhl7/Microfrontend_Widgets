@@ -1,41 +1,42 @@
 import React from 'react'
 import styles from './styles.module.css'
 import './tailwind.css'
-import {retrieveProfile} from './service/profile-widget-api'
-import { useState, useEffect } from "react";
+import { retrieveProfile } from './service/profile-widget-api'
+import { useState, useEffect } from 'react'
 
-
-export const ProfileDetailsWidget = ({widgetId, customerId, env, context  }) => {
-
-  const {contextData, setContextData} = context;
-  console.log("COntextData from props", contextData);
-  console.log("COntext Props,", context);
-  console.log("CustomerID in profile widget,", customerId);
-  const [customer, setCusstomer] = useState({});
+export const ProfileDetailsWidget = ({
+  widgetId,
+  customerId,
+  env,
+  context
+}) => {
+  const { contextData, setContextData } = context
+  console.log('COntextData from props', contextData)
+  console.log('COntext Props,', context)
+  console.log('CustomerID in profile widget,', customerId)
+  const [customer, setCusstomer] = useState({})
 
   useEffect(() => {
-    console.log("CustomerID in profile widget use effect,", customerId);
+    console.log('CustomerID in profile widget use effect,', customerId)
     if (customerId) {
-      fetch('https://6326b210ba4a9c4753299365.mockapi.io/litmus7/users/'+customerId)
+      fetch(
+        'https://6326b210ba4a9c4753299365.mockapi.io/litmus7/users/' +
+          customerId
+      )
         .then((response) => response.json())
         .then((data) => {
-          console.log('profile_api_data' + data);
-          setCusstomer(data);
+          console.log('profile_api_data' + data)
+          setCusstomer(data)
         })
         .catch((err) => {
-          console.log(err.message);
-        });
-    } 
-    
-    
-    
-  }, [customerId]);
+          console.log(err.message)
+        })
+    }
+  }, [customerId])
 
-  const setContextHandler = (customerObject)=>{
-    setContextData({...contextData, customerId:customerObject.id});
+  const setContextHandler = (customerObject) => {
+    setContextData({ ...contextData, customerId: customerObject.id })
   }
-
-  
 
   return (
     <div className='w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700'>
@@ -71,8 +72,14 @@ export const ProfileDetailsWidget = ({widgetId, customerId, env, context  }) => 
           Created at: {customer.createdAt}
         </div>
       </div>
-      <button onClick={()=>{setContextHandler(customer)}}>Set Data!!</button>
+      <button
+        className='text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800'
+        onClick={() => {
+          setContextHandler(customer)
+        }}
+      >
+        Select customer!!
+      </button>
     </div>
   )
 }
-

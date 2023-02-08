@@ -23,14 +23,14 @@ export const ProfileListWidget = ({ widgetId, env, context }) => {
       <table className='w-full text-sm text-left text-gray-500 '>
         <thead className='text-xs text-gray-700 uppercase bg-gray-50 '>
           <tr>
-            <th scope='col' className='px-6 py-3'>
-              email
-            </th>
-            <th scope='col' className='px-6 py-3'>
+            <th scope='col' className='px-6 py-3 text-center'>
               profile id
             </th>
             <th scope='col' className='px-6 py-3'>
               name
+            </th>
+            <th scope='col' className='px-6 py-3'>
+              email
             </th>
             <th scope='col' className='px-6 py-3'>
               billing phone number
@@ -46,20 +46,16 @@ export const ProfileListWidget = ({ widgetId, env, context }) => {
         <tbody>
           {customers?.map((customer) => (
             <tr className='bg-white border-b '>
+              <td className='px-6 py-4 text-center'>{customer.id}</td>
               <th
                 scope='row'
-                className='px-6 py-4 font-medium text-gray-900 whitespace-nowrap '
+                className='px-6 py-4 font-medium text-blue-300 whitespace-nowrap '
               >
-                {customer.email}
+                <a href={'/customer/customer-detail/' + customer.id}>
+                  {customer.firstName + ' ' + customer.lastName}{' '}
+                </a>
               </th>
-              <td className='px-6 py-4'>{customer.id}</td>
-              <td className='px-6 py-4'>
-                {
-                  <a href={'/customer/customer-detail/' + customer.id}>
-                    {customer.firstName + ' ' + customer.lastName}{' '}
-                  </a>
-                }
-              </td>
+              <td className='px-6 py-4'>{customer.email}</td>
               <td className='px-6 py-4'>{customer.phoneNumber}</td>
               <td className='px-6 py-4'>{customer.city}</td>
               <td className='px-6 py-4'>{customer.state}</td>

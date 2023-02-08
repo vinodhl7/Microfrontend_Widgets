@@ -35,13 +35,13 @@ export const OrderListWidget = ({
         <table className='w-full text-sm text-left text-gray-500 dark:text-gray-400'>
           <thead className='text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400'>
             <tr>
-              <th scope='col' className='px-6 py-3'>
+              <th scope='col' className='px-6 py-3 text-center'>
                 Order id
               </th>
-              <th scope='col' className='px-6 py-3'>
+              <th scope='col' className='px-6 py-3 text-center'>
                 Customer id
               </th>
-              <th scope='col' className='px-6 py-3'>
+              <th scope='col' className='px-6 py-3 text-center'>
                 Guest
               </th>
               <th scope='col' className='px-6 py-3'>
@@ -66,19 +66,25 @@ export const OrderListWidget = ({
               <tr className='bg-white border-b dark:bg-gray-800 dark:border-gray-700'>
                 <th
                   scope='row'
-                  className='px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white'
+                  className='px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white text-center'
                 >
                   <a href={'/order/order-detail/' + order.orderId}>
                     {order.orderId}
                   </a>
                 </th>
-                <td className='px-6 py-4'>{order.customerId}</td>
-                <td className='px-6 py-4'>{order.guestOrder}</td>
+                <td className='px-6 py-4 text-center'>{order.customerId}</td>
+                <td className='px-6 py-4 text-center'>
+                  {order.guestOrder ? 'yes' : 'no'}
+                </td>
                 <td className='px-6 py-4'>{order.lastName}</td>
                 <td className='px-6 py-4'>{order.firstName}</td>
-                <td className='px-6 py-4'>{order.dateSubmitted}</td>
-                <td className='px-6 py-4'>{order.dateShipped}</td>
-                <td className='px-6 py-4'>{order.totalPrice}</td>
+                <td className='px-6 py-4'>
+                  {new Date(order.dateSubmitted).toLocaleString()}
+                </td>
+                <td className='px-6 py-4'>
+                  {new Date(order.dateShipped).toLocaleString()}
+                </td>
+                <td className='px-6 py-4'>${order.totalPrice}</td>
               </tr>
             ))}
           </tbody>
